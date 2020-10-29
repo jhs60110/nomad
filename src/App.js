@@ -1,62 +1,38 @@
 import React from 'react';
 //react = 당신이 거기에 쓰는 모든 요소를 생성함, 자바스크립트와 함께 만들고 html로 집어 넣음 <-- 브라우저 요소에서 html이 보이지 않는 이유
-import PropTypes from "prop-types";
 
-
-
-  const grapeKind = [
-    {
-      id : 1,
-      name: "Green grape",
-      image:
-        "https://img2.tmon.kr/cdn3/deals/2019/08/30/2264353898/original_2264353898_front_a7e20_1567132362production.png"
-     , rating: 5
-    },
-    {
-      id: 2,
-      name: "red grape",
-      image:
-        "https://th4.tmon.kr/thumbs/image/932/ae3/059/01ed225d2_700x700_95_FIT.jpg"
-        , rating: 3
-    },
-    {
-      id: 3,
-      name: "blue grape",
-      image:
-        "https://previews.123rf.com/images/dvolkovkir1980/dvolkovkir19801709/dvolkovkir1980170900083/86369274-%ED%8C%8C%EB%9E%80%EC%83%89-%ED%8F%AC%EB%8F%84%EC%9D%98-%ED%81%BC%EC%9E%85%EB%8B%88%EB%8B%A4-%EB%82%98%EB%AD%87%EC%9E%8E%EA%B3%BC-%ED%8F%AC%EB%8F%84-%EB%82%98%EB%AC%B4%EC%99%80-%EB%B8%94%EB%A3%A8-%ED%8F%AC%EB%8F%84%EC%9E%85%EB%8B%88%EB%8B%A4-%ED%8F%AC%EB%8F%84%EC%9D%98-%EC%82%AC%EC%A7%84%EC%9E%85%EB%8B%88%EB%8B%A4-.jpg"
-        , rating: 4
-    }
-  ];
-
-  function Grape({ name, picture, rating}) {
+class App extends React.Component{ // react.component는 많은 것을 가지고 있고, 그중 하나가 우리가 사용할 state임
+  state = {
+    isLoading: true,
+    movies: []
+  };
+  componentDidMount(){
+  /* { //컴포넌트가 mount될때, 컴포넌트가 screen에 표시될때, 컴포넌트가 website에 갈때 constructor를 호출한다.
+// 처음 component가 render할때
+    console.log("Component render");
+  }
+  componentDidUpdate() { //업데이트의 원인: 내가 만든 add minus
+    console.log("updated");
+  }
+  componentWillUnmount() { // 컴포넌트 종료시 호출됨
+    console.log("Goodbye");
+  }*/
+  setTimeout(() => { 
+    this.setState({ isLoading: false });
+  }, 6000);
+}
+  render() { 
+   /* console.log("rendering");
     return (
       <div>
-        <h2>I like {name}</h2>
-        <h4>{rating}/5</h4>
-        <img src={picture} alt={name}/>
+        <h1>The number is: {this.state.count}</h1>
+        <button onClick={this.add}>Add</button>
+        <button onClick={this.minus}>Minus</button>
       </div>
-    );
-  }
+      );*/
+      const { isLoading } = this.state;
+      return <div>{isLoading ? "Loading" : "We are ready"}</div>;
+}}
 
-  Grape.propTypes = {
-    name: PropTypes.string.isRequired,
-    picture: PropTypes.string.isRequired,
-    rating: PropTypes.number
-  };
-
-function App() {
-  return (
-    <div>
-      {/*map이 하는것은 rendering array로부터 나에게 array를 줌 */}
-      {grapeKind.map(color => (       /*color는 오브젝트 이것은 name과 image를 포함*/
-        <Grape 
-        key={color.id} 
-        name={color.name} 
-        picture={color.image}
-        rating={color.rating} />
-      ))}
-    </div>
-  );
-}
 
 export default App;
