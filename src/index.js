@@ -1,17 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import ReactDOM from 'react-dom'; 
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+
+ReactDOM.render( <App />,
+  document.getElementById('root') // index.html에 31번째 줄 div id= root를 받음
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reder옆 <App/>은 component 
+// react는 component와 함께 동작한다. 모든것은 component임
+// component는 HTML을 반환하는 함수임 js + html = JSX
+// react application은 한 번에 하나의 component만 rendering 할 수 있다.

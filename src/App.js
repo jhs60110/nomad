@@ -1,25 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+//react = 당신이 거기에 쓰는 모든 요소를 생성함, 자바스크립트와 함께 만들고 html로 집어 넣음 <-- 브라우저 요소에서 html이 보이지 않는 이유
+import Grape from "./grape";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Hello</h1>
+      <Grape />
     </div>
   );
 }
-
 export default App;
